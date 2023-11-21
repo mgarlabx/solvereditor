@@ -2,7 +2,7 @@
 /**
 /* Classe para o editor de texto Solvertype  
 /* Autor: Maurício Garcia, novembro/2023
-/* Utiliza o KaTeX para renderizar o LaTeX
+/* Utiliza o KaTeX para renderizar o LaTeX (https://katex.org/)
 */
 
 class Solvertype {
@@ -40,14 +40,16 @@ class Solvertype {
                     <button class="solvertype-input-button" id="solvertype-input-clear-${this.id}" title="Remove formatações">&#9938;</button>
                     <div class="solvertype-input-button-separator"></div>
                     <div>
-                    <button class="solvertype-input-button" id="solvertype-input-symbol-${this.id}" title="Símbolos">&beta;</button>
-                    <div class="solvertype-input-symbols" id="solvertype-input-symbols-${this.id}"></div>
+                        <button class="solvertype-input-button" id="solvertype-input-symbol-${this.id}" title="Símbolos">&beta;</button>
+                        <div class="solvertype-input-symbols" id="solvertype-input-symbols-${this.id}"></div>
                     </div>
                     <div>
-                    <button class="solvertype-input-button" id="solvertype-input-latex-${this.id}" title="LaTeX">&Sqrt;</button>
-                    <div class="solvertype-input-latexs" id="solvertype-input-latexs-${this.id}"></div>
+                        <button class="solvertype-input-button" id="solvertype-input-latex-${this.id}" title="LaTeX">&Sqrt;</button>
+                        <div class="solvertype-input-latexs" id="solvertype-input-latexs-${this.id}"></div>
                     </div>
                     <button class="solvertype-input-button" id="solvertype-input-image-${this.id}" title="Imagens">&#9824;</button>
+                    <input type="file" id="solvertype-upload-${this.id}" accept="image/*" style="display: none;" />
+
                 </div>
                 <div class="solvertype-input-buttons-right">
                     <button class="solvertype-input-button" id="solvertype-input-close-${this.id}" title="Fechar">X</button>
@@ -87,12 +89,6 @@ class Solvertype {
 
     }
 
-    // renderiza o LaTeX usando o KaTeX
-    render(str) {
-        return str.replace(/\[latex\](.*?)\[\/latex\]/g, (match, latex) => {
-            return katex.renderToString(latex, { throwOnError: false });
-        });
-    }
 
     // edita o texto, abre o editor
     edit() {
@@ -176,12 +172,13 @@ class Solvertype {
             this.closeMenus();
             return;
         }
-        const latexs = ['L', '&#189;', '&plusmn;', '&radic;', '&#8731;', '&#775;', '&#803;'];
-        const latexs_values = ['[latex][/latex]', '\\frac{1}{2}', '\\pm', '\\sqrt{x}', '\\sqrt[3]{x}', '^', '_'];
+        const latexs = ['L', '&#189;', '&plusmn;', '&radic;', '&#8731;', '&#775;', '&#803;', '&plusb;'];
+        const latexs_values = ['[latex][/latex]', '\\frac{1}{2}', '\\pm', '\\sqrt{x}', '\\sqrt[3]{x}', '^', '_', '\\begin{bmatrix}a&b\\\\c&d\\\\e&f\\end{bmatrix}'];
+        const latexs_titles = ['[latex][/latex]', 'Fração', 'Mais ou menos', 'Raiz quadrada', 'Raiz cúbica', 'Superescrito', 'Subescrito', 'Matriz'];
         let tx_latexs = '';
         let r = 0
         for (let i = 0; i < latexs.length; i++) {
-            tx_latexs += `<button class="solvertype-input-latex" value="${latexs_values[i]}">${latexs[i]}</button>`;
+            tx_latexs += `<button class="solvertype-input-latex" value="${latexs_values[i]}" title="${latexs_titles[i]}">${latexs[i]}</button>`;
             if (r < 9) {
                 r = r + 1;
             }
@@ -203,9 +200,35 @@ class Solvertype {
         }
     }
 
-    // imagens
+    // renderiza o LaTeX usando o KaTeX
+    render(str) {
+        return str.replace(/\[latex\](.*?)\[\/latex\]/g, (match, latex) => {
+            let ret = latex;
+            ret = ret.replace(/&amp;/g, '&'); // para evitar problemas com o & do KaTeX
+            ret = katex.renderToString(ret, { throwOnError: false });
+            return ret
+        });
+    }
+
+
+    // carrega imagens
     image() {
-        alert('image');
+        const fileInput = document.getElementById(`solvertype-upload-${this.id}`);
+        fileInput.click();
+        fileInput.addEventListener('change', event => {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = e => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                let imgOuterHTML = img.outerHTML;
+                imgOuterHTML = imgOuterHTML.replace(/<img /g, '<img class="solvertype-input-image" ');
+                let div = `<div class="solvertype-input-image-container">${imgOuterHTML}</div>`;
+                document.execCommand('insertHTML', false, div);
+                this.changed = true;
+            };
+            reader.readAsDataURL(file);
+        });
     }
 
     // fecha o editor

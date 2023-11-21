@@ -1,4 +1,5 @@
 
+/* SEÇÃO - TEXTO *****************************/
 .solvertype-text {
     padding: 20px;
 }
@@ -21,10 +22,19 @@
 
 
 
+/* SEÇÃO - INPUT *****************************/
+
 .solvertype-input {
     padding: 20px;
 }
 
+
+.solvertype-input-body {
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* botões */
 
 .solvertype-input-buttons {
     display: flex;
@@ -48,17 +58,12 @@
     margin: 5px;
 }
 
-.solvertype-input-body {
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
 .solvertype-input-button-separator {
     width: 30px;
 }
 
 
-
+/* símbolos */
 
 .solvertype-input-symbols {
 	position: absolute;
@@ -77,6 +82,9 @@
 	border: 1px solid black;
 }
 
+
+/* LaTeX */
+
 .solvertype-input-latexs {
     position: absolute;
 	display: none;
@@ -92,4 +100,16 @@
 
 .solvertype-input-latex:hover {
 	border: 1px solid black;
+}
+
+
+/* imagens */
+
+.solvertype-input-image-container {
+    max-width: 800px;
+    border: 1px solid white;
+}
+
+.solvertype-input-image {
+    max-width: 100%;
 }
