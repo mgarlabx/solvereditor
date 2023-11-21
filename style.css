@@ -1,0 +1,25 @@
+body {
+    background-color: #c0c0c0;
+}
+
+#main {
+    width: 800px;
+    min-height: 600px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.main-text {
+    width: calc(100% - 20px);
+    min-height: 100px;
+    margin: 10px;
+    background-color: #ffffff;
+}
+
+
+/* Exemplo para mostrar comportamento em uma div scrollable */
+#main-text-2 {
+    max-height: 200px;
+    overflow: scroll;
+}

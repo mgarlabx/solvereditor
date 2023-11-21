@@ -1,0 +1,95 @@
+
+.solvertype-text {
+    padding: 20px;
+}
+
+.solvertype-text-buttons {
+    float: right;
+    cursor: pointer;
+}
+
+.solvertype-text-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.solvertype-text-button:hover {
+    background-color: #bbb;
+}
+
+
+
+.solvertype-input {
+    padding: 20px;
+}
+
+
+.solvertype-input-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: #bbb;
+    padding: 5px;
+}
+
+.solvertype-input-buttons-right {
+    display: flex;
+}
+
+.solvertype-input-buttons-left {
+    display: flex;
+}
+
+.solvertype-input-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.solvertype-input-body {
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.solvertype-input-button-separator {
+    width: 30px;
+}
+
+
+
+
+.solvertype-input-symbols {
+	position: absolute;
+	display: none;
+    background-color: white;
+}
+
+.solvertype-input-symbol {
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+	border: 1px solid white;
+}
+
+.solvertype-input-symbol:hover {
+	border: 1px solid black;
+}
+
+.solvertype-input-latexs {
+    position: absolute;
+	display: none;
+    background-color: white;
+}
+
+.solvertype-input-latex {
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+	border: 1px solid white;
+}
+
+.solvertype-input-latex:hover {
+	border: 1px solid black;
+}
