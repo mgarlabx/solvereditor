@@ -1,5 +1,9 @@
+:root {
+    --width: 900;
+}
 
 /* SEÇÃO - TEXTO *****************************/
+
 .solvertype-text {
     padding: 20px;
 }
@@ -14,10 +18,13 @@
     height: 30px;
     width: 30px;
     margin: 5px;
+    background-color: white;
+    border: none;
+
 }
 
 .solvertype-text-button:hover {
-    background-color: #bbb;
+    background-color: #ddd;
 }
 
 
@@ -36,10 +43,20 @@
 
 /* botões */
 
+.solvertype-input-paragraph {
+    cursor: pointer;
+    height: 30px;
+    margin: 5px;
+    background-color: white;
+    border: none;
+
+}
+
 .solvertype-input-buttons {
     display: flex;
     justify-content: space-between;
-    background-color: #bbb;
+    background-color: white;
+    border: 1px solid #ddd;
     padding: 5px;
 }
 
@@ -54,32 +71,69 @@
 .solvertype-input-button {
     cursor: pointer;
     height: 30px;
-    width: 30px;
+    min-width: 30px;
     margin: 5px;
+    background-color: white;
+    border: none;
+}
+
+.solvertype-input-button:hover {
+    background-color: #ddd;
 }
 
 .solvertype-input-button-separator {
-    width: 30px;
+    margin-left: 5px;
+    padding-right: 5px;
+    border-left: 1px solid #ddd;
 }
+
+
+/* cores */
+
+.solvertype-input-colors {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.solvertype-input-color {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.solvertype-input-color:hover {
+    border: 1px solid black;
+}
+
 
 
 /* símbolos */
 
 .solvertype-input-symbols {
-	position: absolute;
-	display: none;
+    position: absolute;
+    display: none;
     background-color: white;
+    border: 1px solid #C0C0C0;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .solvertype-input-symbol {
-	width: 2rem;
-	height: 2rem;
-	cursor: pointer;
-	border: 1px solid white;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
 }
 
 .solvertype-input-symbol:hover {
-	border: 1px solid black;
+    background-color: #ddd;
 }
 
 
@@ -87,29 +141,27 @@
 
 .solvertype-input-latexs {
     position: absolute;
-	display: none;
+    display: none;
     background-color: white;
+    border: 1px solid #C0C0C0;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(-40%, 0);
 }
 
-.solvertype-input-latex {
-	width: 2rem;
-	height: 2rem;
-	cursor: pointer;
-	border: 1px solid white;
+.solvertype-input-latexs-buttons {
+    margin-top: 10px;
 }
 
-.solvertype-input-latex:hover {
-	border: 1px solid black;
+.solvertype-input-latexs-button {
+    cursor: pointer;
+    height: 30px;
+    min-width: 30px;
+    margin: 5px;
+    background-color: white;
+    border: none;
 }
 
-
-/* imagens */
-
-.solvertype-input-image-container {
-    max-width: 800px;
-    border: 1px solid white;
-}
-
-.solvertype-input-image {
-    max-width: 100%;
+.solvertype-input-latexs-button:hover {
+    background-color: #ddd;
 }

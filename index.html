@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
     <title>SolverType</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
@@ -9,6 +10,18 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
         integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
         crossorigin="anonymous"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <link href="./lib/mathquill.css" rel="stylesheet">
+    <link href="./lib/matheditor.css" rel="stylesheet">
+    <script src="./lib/mathquill.min.js"></script>
+    <script src="./lib/matheditor.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="solvertype.css">
     <script type="module" src="solvertype.js"></script>
@@ -18,13 +31,14 @@
 </head>
 
 <body>
+
     <div id="main">
+        <h2>Opção HTML</h2>
         <div class="main-text" id="main-text-0"></div>
+        <h2>Opção PNG</h2>
         <div class="main-text" id="main-text-1"></div>
+        <h2>Opção MathML</h2>
         <div class="main-text" id="main-text-2"></div>
-        <div class="main-text" id="main-text-3"></div>
-        <div class="main-text" id="main-text-4"></div>
-        <div class="main-text" id="main-text-5"></div>
     </div>
 </body>
 
