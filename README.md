@@ -2,6 +2,8 @@
 
 Solvertype é um componente que permite criar um editor WYSIWYG, com formatações básicas, imagens e equações.
 
+Um exemplo pode ser visto em http://solvertank.com/solvertype/  
+
 É feito em Javascript puro e fácil de implementar. Seu uso é livre, sem direitos autorais.
 
 O componente está contido em dois arquivos apenas:  
